@@ -1,0 +1,50 @@
+{% extends 'signal/base.html' %}
+{% block content %}
+    <script>
+    $(function () {
+        $("#upload").click(function () {
+            $("#id_wav_file").click();
+        });
+    });
+{#    $(document).ready(function () {#}
+{#        $("#wav_file").change(function () {#}
+{#             $("#submit_btn").click();#}
+{#        });#}
+{##}
+{#    });#}
+    </script>
+    <article class="container">
+        <div class="page-header">
+            <h3>Signal Modulation Identifier <small>신호 변조방식 확인</small></h3>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+            <form role="form" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="{{ forms.id_for_label }}">{{ forms.label }}</label>
+                    {{ forms }}
+{#                    <label for="wav_file">wav file</label>#}
+{#                    <input name="wav_file" data-url="{% url 'smi' %}" data-form-data='"csrfmiddlewaretoken": "{{ csrf_token }}"}' id="wav_file" type="file" style="display: none;" required>#}
+                </div>
+                <button type="button" id="upload" class="btn btn-primary"><i class="glyphicon glyphicon-cloud-upload"></i> file upload</button><br><br>
+                <button id="submit_btn" class="btn btn-success" type="submit">submit</button>
+            </form>
+        </div>
+    <dlv class="col-md-6 col-md-offset-3" id="percent">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Modulation</th>
+                    <th>Accuracy (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ modulation }}</td>
+                    <td>{{ accuracy }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </dlv>
+    </article>
+
+{% endblock %}

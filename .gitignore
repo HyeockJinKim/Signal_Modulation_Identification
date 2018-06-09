@@ -1,0 +1,6 @@
+.idea/
+db.sqlite3
+media/
+smi_ui/migrations/
+SMI/__pycache__/
+smi_ui/__pycache__/
